@@ -177,6 +177,17 @@ names (e.g. blue), predefined colour numbers (0 for black, 1 for red,
 RGB format, #g and #gg for specifying grey with the given hexadecimal
 level, and empty (\\m[]) for the previous colour.  The current colour
 is available in \&.m number register.
+The colour format made of hexadecimal digits is composed as follows:
+.br
+#rrggbb is the regular 8 bit triple of the RGB colour space.  #rgb is
+a short form, where each digit gets repeated to form the #rrggbb form.
+For example #314 is internally compiled to #331144.  Same applies to
+#gg and #g. "g" are short for "grey" in this context - not "green".
+The one hexadecimal digit #g becomes repeated internally when
+compiled to form #gggggg and the byte #gg becomes repeated to form
+#gggggg. Therefore #5 becomes #55 and then #555555, but #1A becomes
+#1A1A1A.
+
 
 .MH "Hyphenation language
 The \&.hpf request loads hyphenation patterns, exceptions, and
